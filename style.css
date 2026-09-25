@@ -1,0 +1,432 @@
+/* ==========================================================================
+   1. VARIABLES DE CSS (Para cambiar colores y fuentes fácilmente)
+   ========================================================================== */
+:root {
+    --primary-color: #1e3a8a;       /* Azul oscuro profesional */
+    --primary-hover: #1e40af;       /* Azul para efectos hover */
+    --accent-color: #0284c7;        /* Azul cian para detalles destacados */
+    --accent-light: #e0f2fe;        /* Azul claro para etiquetas de fechas */
+    --bg-color: #f8fafc;            /* Fondo general de la pantalla */
+    --card-bg: #ffffff;             /* Fondo de las tarjetas blancas */
+    --text-primary: #0f172a;        /* Color principal para títulos y textos */
+    --text-secondary: #475569;      /* Color secundario para detalles */
+    --border-color: #e2e8f0;        /* Color de los bordes suaves */
+    --radius: 12px;                 /* Esquinas redondeadas */
+    --transition: all 0.3s ease;    /* Velocidad de animaciones suaves */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* ==========================================================================
+   2. REINICIO GENERAL (RESET)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   3. ENCABEZADO / HERO SECTION
+   ========================================================================== */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), #0f172a);
+    color: #ffffff;
+    padding: 50px 20px;
+    margin-bottom: 30px;
+}
+
+.hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Estilo de la imagen de perfil */
+.profile-img-wrapper {
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    background-color: var(--accent-color); /* Respaldo visual si la foto no carga */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+/* Animación suave al pasar el cursor sobre la foto */
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+.hero-info {
+    flex-grow: 1;
+}
+
+.hero-name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.hero-tagline {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+/* Insignias de contacto directo */
+.contact-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    background-color: rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   4. ESTRUCTURA Y TARJETAS
+   ========================================================================== */
+.cv-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cv-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 28px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+/* Elevación sutil de la tarjeta al pasar el mouse */
+.cv-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+/* Títulos de cada sección */
+.section-title {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.profile-text {
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.profile-text:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. LÍNEA DE TIEMPO (ESTUDIOS Y EXPERIENCIA)
+   ========================================================================== */
+.timeline-item {
+    padding-left: 16px;
+    border-left: 3px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.item-title {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.item-status {
+    font-size: 0.82rem;
+    background-color: var(--accent-light);
+    color: #0369a1;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.item-subtitle, .item-detail {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.item-list {
+    margin-top: 8px;
+    margin-left: 20px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.item-list li {
+    margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   6. HABILIDADES (BADGES)
+   ========================================================================== */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.skill-tag:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px); /* Animación suave hacia arriba */
+}
+
+/* Destacado para etiquetas editables */
+.skill-tag-custom {
+    background-color: #fef3c7;
+    border-color: #fde047;
+    color: #92400e;
+}
+
+/* ==========================================================================
+   7. PROYECTOS Y TARJETAS SECUNDARIAS
+   ========================================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.project-card {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 18px;
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.project-title {
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.project-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.project-info {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   8. IDIOMAS Y CONTACTO FINAL
+   ========================================================================== */
+.languages-list {
+    list-style: none;
+}
+
+.languages-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.languages-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-intro {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.contact-box {
+    background-color: #f8fafc;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-box strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.contact-box a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.contact-box a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   9. PIE DE PÁGINA
+   ========================================================================== */
+.footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   10. ADAPTABILIDAD PARA CELULARES (RESPONSIVE DESIGN)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .contact-badges {
+        justify-content: center;
+    }
+
+    .cv-card {
+        padding: 20px;
+    }
+
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================================
+   ESTILOS PARA MAPA Y BOTÓN DE WHATSAPP
+   ========================================================================== */
+
+/* Mapa interactivo del colegio */
+.map-container {
+    margin-top: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+}
+
+/* Enlace de WhatsApp en la tarjeta de contacto */
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #25d366 !important;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.whatsapp-link:hover {
+    text-decoration: underline;
+}
+
+.wsp-icon {
+    width: 18px;
+    height: 18px;
+    fill: #25d366;
+}
+
+/* Botón flotante verde de WhatsApp en la esquina inferior */
+.wsp-float-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #25d366;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.wsp-float-btn:hover {
+    transform: scale(1.1);
+    background-color: #20ba5a;
+}
+
+.wsp-float-icon {
+    width: 30px;
+    height: 30px;
+    fill: #ffffff;
+}
